@@ -1,6 +1,22 @@
 <div anvil-slot-repeat="default">
 </div>
-
+<meta name="google-signin-client_id" content="459197388092-75gkinh1rravt35r7c0ip92v3ngesk37.apps.googleusercontent.com">
 <center style="color:#888; margin: 50px;">
-  <input>Username</input>
+  <input>Username</input><br>
+  <input>Password</input><br>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <a href="privacypolicy.html">Privacy Policy</a>
 </center>
+
+<script>
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  document.getElementById("p1").innerHTML = profile.getName() + profile.getId();
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+</script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+document.getElementById("p1").innerHTML = profile.getName();
